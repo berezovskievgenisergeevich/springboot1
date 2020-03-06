@@ -71,7 +71,7 @@
     </bean>
     -->
 
-    <!--Lesson 7-->
+    <!--Lesson 7
     <bean id="musicBean"
           class="com.berezouski.lesson7.ClassicalMusic">
     </bean>
@@ -82,5 +82,19 @@
         <property name="name" value="Some Name"/>
         <property name="volume" value="70"/>
     </bean>
+    -->
+    <!--    lesson 8-->
+    <!-- <bean id="musicBean"
+           class="com.berezouski.lesson8.ClassicalMusic"
+           init-method="doMyInit"
+           destroy-method="doMyDestroy">
+     </bean>-->
+    <bean id="musicBean"
+          class="com.berezouski.lesson8.ClassicalMusic"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"
+          factory-method="getClassicalMusic">
+    </bean>
+
 
 </beans>
