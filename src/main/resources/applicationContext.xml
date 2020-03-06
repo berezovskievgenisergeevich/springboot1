@@ -29,9 +29,9 @@
      </bean>-->
 
     <!--lesson 6-->
-    <bean id="musicBean"
-          class="com.berezouski.lesson6.ClassicalMusic">
-    </bean>
+    <!--   <bean id="musicBean"
+             class="com.berezouski.lesson6.ClassicalMusic">
+       </bean>-->
     <!--  <bean id="musicPlayer"
             class="com.berezouski.lesson6.MusicPlayer">
           <property name="music" ref="musicBean"/>
@@ -47,6 +47,7 @@
     </bean>
     -->
 
+    <!--Передаем лист
     <bean id="music1"
           class="com.berezouski.lesson6.ClassicalMusic">
     </bean>
@@ -68,6 +69,18 @@
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
+    -->
 
+    <!--Lesson 7-->
+    <bean id="musicBean"
+          class="com.berezouski.lesson7.ClassicalMusic">
+    </bean>
+    <bean id="musicPlayer"
+          class="com.berezouski.lesson7.MusicPlayer"
+          scope="prototype">
+        <property name="music" ref="musicBean"/>
+        <property name="name" value="Some Name"/>
+        <property name="volume" value="70"/>
+    </bean>
 
 </beans>
