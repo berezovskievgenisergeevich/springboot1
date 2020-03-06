@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:musicPlayer.properties"/>
+
+    <bean id="testBean"
+          class="com.berezouski.lesson123.TestBean">
+        <constructor-arg value="Neil"/>
+    </bean>
+
+    <!--lesson 4-->
+    <!--  <bean id="musicBean"
+            class="com.berezouski.lesson4.RockMusic">
+      </bean>-->
+
+    <!--lesson 5-->
+    <!-- <bean id="musicBean"
+           class="com.berezouski.lesson5.ClassicalMusic">
+     </bean>
+     <bean id="musicPlayer"
+           class="com.berezouski.lesson5.MusicPlayer">
+         <constructor-arg ref="musicBean"/>
+     </bean>-->
+
+    <!--lesson 6-->
+    <bean id="musicBean"
+          class="com.berezouski.lesson6.ClassicalMusic">
+    </bean>
+    <!--  <bean id="musicPlayer"
+            class="com.berezouski.lesson6.MusicPlayer">
+          <property name="music" ref="musicBean"/>
+          <property name="name" value="Name"/>
+          <property name="volume" value="50"/>
+      </bean>-->
+    <!--Из файла проперти
+      <bean id="musicPlayer"
+          class="com.berezouski.lesson6.MusicPlayer">
+        <property name="music" ref="musicBean"/>
+        <property name="name" value="${musicPlayer.name}"/>
+        <property name="volume" value="${musicPlayer.volume}"/>
+    </bean>
+    -->
+
+    <bean id="music1"
+          class="com.berezouski.lesson6.ClassicalMusic">
+    </bean>
+    <bean id="music2"
+          class="com.berezouski.lesson6.RockMusic">
+    </bean>
+    <bean id="music3"
+          class="com.berezouski.lesson6.RAPMusic">
+    </bean>
+    <bean id="musicPlayer"
+          class="com.berezouski.lesson6.MusicPlayer">
+        <property name="music">
+            <list>
+                <ref bean="music1"/>
+                <ref bean="music2"/>
+                <ref bean="music3"/>
+            </list>
+        </property>
+        <property name="name" value="${musicPlayer.name}"/>
+        <property name="volume" value="${musicPlayer.volume}"/>
+    </bean>
+
+
+</beans>
